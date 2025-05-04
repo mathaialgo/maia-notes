@@ -12,191 +12,191 @@
 \begin{document}
 \maketitle
 
-\section{Zbiory}
+\section{Podstawowa terminologia}
+
+\subsection{Zbiory i rodziny}
+
 \begin{enumerate}
-\item $X$ - przestrzeń/zbiór
-\item $A \subseteq X$
-\item $A^c = \{x \in X : x \notin A\}$
-\item $\emptyset = X^c$ \quad zbiór pusty/podzbioru
-\item $2^X$ - rodzina podzbiorów $X$
+
+\item przestrzeń/zbiór -- $X$
+\item podzbiór -- $A \subseteq X$
+\item dopełnienie podzbioru -- $A^c = \{x \in X : x \notin A\}$
+\item zbiór pusty -- $\emptyset = X^c$
+\item zbiór potęgowy / wszystkich podzbiorów -- $\mathcal{P}(X)$ lub $2^X$ ($A^B$ to ogólnie wszystkie funkcje $f: B \to A$)
+\item rodzina podzbiorów -- $\mathcal{F}(X) \subseteq \mathcal{P}$
+
 \end{enumerate}
 
-$A^B \Rightarrow$ wszystkie funkcje $f: B \to A$
 
-\section{Dla $A_\alpha \subset X$}
-$\alpha \in I$ (dowolny zbiór indeksów)
+\subsection{Złożenia zbiorów}
 
-$$\bigcup_{\alpha \in I} A_\alpha = \{x \in X: \exists_{\alpha \in I} x \in A_\alpha\}$$
-
-$$\bigcap_{\alpha \in I} A_\alpha = \{x: \forall_{\alpha \in I} x \in A_\alpha\}$$
-
-\section{Dla $A_n \subset X, \; n \in \mathbb{N}, \ldots$}
-$$\lim_{n \to \infty} A_n = \limsup_{n} A_n$$
-
-\begin{equation*}
-\bigcap_{n=1}^{\infty} \left( \bigcup_{k \geq n} A_k \right)
-\end{equation*}
-
-$$\lim_{n \to \infty} A_n = \liminf_{n} A_n$$
-
-\begin{equation*}
-\bigcup_{n=1}^{\infty} \left( \bigcap_{k \geq n} A_k \right)
-\end{equation*}
-
-\vspace{0.3cm}
-\textbf{Fakt:}
 \begin{enumerate}
-\item $\lim_{n} A_n \subset \liminf_{n} A_n$
-\item $\left( \lim_{n} A_n \right)^c = \liminf_{n} A_n^c$
-\item $\left( \lim_{n} A_n \right)^c = \liminf_{n} A_n^c$
+
+\item dla $A_\alpha \subset X$ gdzie $\alpha \in I$ (dowolny zbiór indeksów)
+
+$$\bigcup_{\alpha \in I} A_\alpha = \{x \in X: \exists_{\alpha\in I}(x \in A_\alpha)\}$$
+
+$$\bigcap_{\alpha \in I} A_\alpha = \{x \in X: \forall_{\alpha \in\ I}(x \in A_\alpha)\}$$
+
+\item dla $A_n \subset X$ gdzie $n \in \mathbb{N}$
+
+$$\limsup_{n \to \infty} A_n = \bigcap_{n=1}^{\infty} \left( \bigcup_{k \geq n} A_k \right)$$
+
+$$\liminf_{n \to \infty} A_n = \bigcup_{n=1}^{\infty} \left( \bigcap_{k \geq n} A_k \right)$$
+
+\textbf{fakt:} $\liminf A_n \subseteq \limsup A_n$
+
+\textbf{fakt:} $\left( \liminf A_n \right)^c = \left( \limsup A_n\right)^c$
+
+\textbf{fakt:} $\left( \limsup A_n \right)^c = \left( \liminf A_n\right)^c$
+
+$\textbf{def:} \liminf A_n = \limsup A_n \Rightarrow \lim A_n = \liminf A_n = \limsup A_n$
+
+\item iloczyn Kartezjański -- $A \times B = \{(x,y): x \in A, y \in B \}$
+
 \end{enumerate}
 
-\textbf{Def:} $\lim_{n} A_n = \lim_{n} A_n \Rightarrow \lim_{n} A_n = \liminf_{n} A_n = \limsup_{n} A_n$
-
-\section{CP}
-$A \times B = \{(x,y): x \in A, y \in B \}$
-
-\subsection{Topologia}
-\subsubsection{Przestrzeń topo. (X, $\tau$) $\rightarrow$ rodzina podzbiorów w sensie}
-\begin{itemize}
-\item[(a)] $A_\alpha \in \tau, \; \alpha \in I \Rightarrow \bigcup_{\alpha \in I} A_\alpha \in \tau$
-\item[(b)] $A_1, \ldots, A_n \in \tau, \; n \in \mathbb{N} \Rightarrow \bigcap_{k=1}^n A_k \in \tau$
-\item[(c)] $\emptyset, X \in \tau$
-\end{itemize}
-
-$\tau$ - topologia
-
-$A \in \tau \Rightarrow$ open set\\
-closed set: $A^c$
+\section{Topologie i metryki}
 
 \subsection{Funkcje ciągłe}
-given $(X, \tau_1)$, $(Y, \tau_2)$
-
-$f: X \to Y$ jest ciągła iff 
-$$\forall_{A \in \tau_2} f^{-1}[A] \in \tau_1$$
-
-$$\{x \in X: f(x) \in A\}$$
-
-\section{Przestrzeń metryczna $(X, d)$}
-$d: X \times X \to [0,\infty)$ takie że:
 
 \begin{enumerate}
-\item $d(x,y) = 0 \Leftrightarrow x = y$
-\item $\forall x, y \in X \quad d(x,y) = d(y,x)$
-\item $\forall x, y, z \in X \quad d(x,y) \leq d(x,z) + d(z,y)$
+\item funkcja mapująca pomiędzy dwoma przestrzeniami topologicznymi $(X, \tau_1)$ i $(Y, \tau_2)$
+\item funkcja odwrotna $f^{-1}[A] = \{x \in X: f(x) \in A\}$
+\item funkcja $f$ jest ciągła iff $\forall_{A \in \tau_2} f^{-1}[A] \in \tau_1$
 \end{enumerate}
 
-\section{Kula}
-Dla $x_0 \in X, \; R > 0$
+\subsection{Przestrzeń metryczna}
+
+funkcja $d$ jest metryką na $X$ jeśli $d: X \times X \to [0,\infty)$ i spełnia warunki
+
+\begin{enumerate}
+\item odległość punktu do siebie jest zerem, $\forall_{x, y \in X} \mkern5mu d(x,y) = 0 \Leftrightarrow x = y $
+\item jest symetryczna, $\forall_{x, y \in X} \mkern5mu d(x,y) = d(y,x)$
+\item nierówność trójkąta, $\forall_{x, y, z \in X} \mkern5mu d(x,y) \leq d(x,z) + d(z,y)$
+\end{enumerate}
+
+\subsection{Kula}
+
+dla $x_0 \in X$ i $R > 0$ kulą jest zbiór
+
 $$B(x_0, R) = \{x \in X: d(x_0, x) < R\}$$
-closed ball, sphere
 
-\section{Zbiór $A \subset X$ jest otwarty w $X$ iff}
-$$\forall x \in A \; \exists R > 0 \quad B(x, R) \subset A$$
+\subsection{Zbióry otwatre i zamknięte}
 
-\textbf{Fakt:} Tak zdef. rodzina zbiorów otwartych jest topologią.
+\begin{enumerate}
 
-\vspace{0.3cm}
-\textit{przykład} $X = \mathbb{R}^2$
+\item $A \subset X$ jest otwarty w $X$ jeśli mieści się w kulim czyli
 
-$d_0((x_1,y_1), (x_2,y_2)) = \begin{cases} 
+$$\forall_{x \in A} \exists_{R > 0} B(x, R) \subset A$$
+
+\item przykład dla $X = \mathbb{R}^2$ może być
+
+$$d_0\left((x_1,y_1), (x_2,y_2)\right) = \begin{cases} 
 0 & \text{if } (x_1,y_1) = (x_2,y_2) \\
 1 & \text{otherwise}
-\end{cases}$
+\end{cases}$$
+i potem $d_1$ (Manhattan distance) i $d_2$ (Euclidean)
 
-$d_1$ - Euclidea
-$d_2$ - metryka taksówkowa
+\item dopełnieniem zbioru otwartego nazywamy zbiorem zamkniętym
 
-\section{Przestrzeń liniowa nad ciałem $\mathbb{K}$}
-has addition and number defined
+\textbf{fakt:} dopełnienie kuli to sfera (powierzchnia)
 
-$\forall x,y \in X \; \forall \alpha,\beta \in X \quad \alpha x + \beta y \in X$
-
-\section{Przestrzeń unormowana}
-$(X, \|\cdot\|) \rightarrow \|\cdot\|: X \to [0,\infty)$
-
-\begin{enumerate}
-\item $\|x\| = 0 \Leftrightarrow x = 0$
-\item $\forall x \in X \; \forall \alpha \in \mathbb{K} \quad \|\alpha x\| = |\alpha| \cdot \|x\|$
-\item $\forall x,y \in X \quad \|x+y\| \leq \|x\| + \|y\|$
 \end{enumerate}
 
-\textbf{Fakt:} $d(x,y) = \|x-y\|$ jest metryką na $X$
+\subsection{Przestrzeń topologiczna}
 
-\vspace{0.3cm}
-\textit{przykład} $X = \mathbb{R}^n \quad \mathbf{x} = (x_1, \ldots, x_n)$
+Rodzina podzbiorów $\tau$ jest topologią na zbiorze $X$ gdy dla wszystkich otwartych zbiorów $A \in \tau$,
 
-$$\|\mathbf{x}\|_1 = \sum_{i=1}^{n} |x_i| \quad \|\mathbf{x}\|_2 = \sqrt{\sum x_i^2}$$
+\begin{enumerate}
+\item dowolna unia jest zawarta: $A_\alpha \in \tau, \; \alpha \in I \Rightarrow \bigcup_{\alpha \in I} A_\alpha \in \tau$
+\item dowolny przekrój jest zawarta: $A_\alpha \in \tau, \; \alpha \in I \Rightarrow \bigcap_{k=1}^n A_k \in \tau$
+\item $\emptyset, X \in \tau$
+\end{enumerate}
 
-$$\|\mathbf{x}\|_p = \left(\sum x_i^p\right)^{1/p} \quad (p \geq 1)$$
+\section{Przestrzenie liniowe i unormowane}
 
-$$\ell_p = \{x = (x_n)_{n=1}^{\infty} : \sum_{n=1}^{\infty} |x_n|^p < \infty\}$$
+\begin{enumerate}
+\item ciało $\mathbb{K}$ jest zbiorem na którym suma, róźnica, iloczyn i anty-iloczyn są zdefiniowane
+\item przestrzeń liniowa dodatkowo spełnia $\forall_{x,y \in X} \forall_{\alpha,\beta \in X} \alpha x + \beta y \in X$
+\item przestrzeń unormowana dodatkowo definiuje normę $(X, \|\cdot\|) \rightarrow \|\cdot\|: X \to [0,\infty)$ gdzie
+\begin{enumerate}
+\item norma jest zerowa tylko dla zera, $\|x\| = 0 \Leftrightarrow x = 0$
+\item absolute homogeneity, $\forall_{x \in X} \forall_{\alpha \in \mathbb{K}} \|\alpha x\| = |\alpha| \cdot \|x\|$
+\item nierówność trójkąta, $\forall_{x,y \in X} \|x+y\| \leq \|x\| + \|y\|$
+\end{enumerate}
 
-$$\ell_\infty = \{x = (x_n)_{n=1}^{\infty} : \|x\|_\infty = \sup_{n \in \mathbb{N}} |x_n|\}$$
+\textbf{fakt:} odległość zdefiniowana jako $d(x,y) = \|x-y\|$ jest metryką na $X$ (norm induced metric)
 
+\item dla $X = \mathbb{R}^n$ i $\mathbf{x} = (x_1, \ldots, x_n)$ mamy standardowe normy bezwzględne i Euklidesowe i ich uogólnienie,
 
-\section*{Topologie}
+$$\|\mathbf{x}\|_1 = \sum_{i=1}^{n} |x_i|$$
+
+$$\|\mathbf{x}\|_2 = \sqrt{\sum_{i=1}^{n} x_i^2}$$
+
+$$L_p = \|\mathbf{x}\|_p = \left(\sum_{i=1}^{n} x_i^p\right)^{1/p} \quad (p \geq 1)$$
+\item w granicy $L_p$ staje się normę maksymalną
+
+$$L_\infty = \lim_{p \rightarrow \infty} L_p = \max\lbrace |x_1|, |x_2|, ..., |x_n| \rbrace$$
+
+\item dla nieskończonych wektorów (sekwencji) podobnie używając zbioru indeksującego $I$ można zdefiniować normę zbieżną i jej normę maksymalną (to się nazywa przestrzenią Banacha),
+
+$$\ell_p(I) = \{ x = (x_n)_{n \in I}  \in \mathbb{K}: \sum_{n \in I} |x_n|^p < \infty \}$$
+
+$$\ell_\infty = \lim_{p \rightarrow \infty} \ell_p = \sup_{n \in \mathbb{N}} |x_n|$$
+\end{enumerate}
+
+\subsection{Przestrzenie unitarne (inner product space)}
+
+\begin{enumerate}
+\item przestrzeń liniowa $(X, \langle \cdot, \cdot \rangle)$ na liczbach rzeczywistych lub zespolonych
+\item iloczyn wewnętrzny $\langle \cdot, \cdot \rangle: X \times X \to \mathbb{K}$ spełnia warunki:
+\begin{enumerate}
+\item symetria sprzężona, $\forall_{x,y \in X} \langle x,y \rangle = \overline{\langle y, x \rangle}$
+\item limiowość, $\forall_{y_1, y_2,\alpha,\beta,z} \langle \alpha x + \beta y_1, z \rangle = \alpha \langle x, z \rangle + \beta \langle y_1, z \rangle$
+\item niezerowość, $\forall_{x \in X, x \neq 0} \langle x, x \rangle > 0$ (lub $\Rightarrow \langle x, x \rangle = 0 \Leftrightarrow x = 0$)
+\end{enumerate}
+\end{enumerate}
+
+\textbf{fakt:} $\|x\| = \sqrt{\langle x, x \rangle}$ is a norm
+
+\textbf{przykład:} $X = \mathbb{R}^n, \langle x, y \rangle = \sum x_i \cdot y_i$
 
 \begin{center}
 \begin{tikzpicture}
-\draw (0,0) circle (2cm);
-\draw (0,0) circle (1.2cm);
-\draw (0,0) circle (0.7cm);
-\node at (0,0) {norm};
-\node at (0,1.0) {Linear};
-\node at (1.8,1.8) {Topologie};
+\filldraw[fill=blue!15] (0,0) circle (4cm);
+\filldraw[fill=green!15] (-0.4,-0.4) circle (3cm);
+\filldraw[fill=orange!15] (-0.6, -0.6) circle (2cm);
+\filldraw[fill=red!15] (-0.8,-0.8) circle (1.2cm);
+\node at (-0.7,-0.7) {unitarne};
+\node at (-0.2,0.7) {unormowane};
+\node at (0.6,2) {liniowe};
+\node at (1.5,3) {topologie};
 \end{tikzpicture}
 \end{center}
 
-\section{Unitary Space $(X, \langle \cdot, \cdot \rangle)$}
-
-\begin{center}
-Linear space on $\mathbb{K}$
-\end{center}
-
-$\langle \cdot, \cdot \rangle: X \times X \to \mathbb{K}$
+\subsection{Dalsze przesztrzenia}
 
 \begin{enumerate}
-\item[a)] $\forall x,y \in X \quad \langle x,y \rangle = \langle y, x \rangle$
-
-\item[b)] $\forall y_1, y_2, \alpha, \beta, z \quad \langle \alpha x + \beta y_1, z \rangle$
-\[ = \alpha \langle x, z \rangle + \beta \langle y_1, z \rangle \]
-
-\item[c)] $\forall x \in X_{x \neq 0} \langle x, x \rangle > 0 \Rightarrow \langle x, x \rangle = 0 \Leftrightarrow x = 0$
+\item ciąg Cauhy'ego na przestrzeni metrycznej, $\forall_{\varepsilon > 0} \exists_N \forall{m,n>N} d(x_n,x_m) < \varepsilon$
+\item przestrzeń zupełna (complete, Cauchy), każdy ciąg Cauchy'ego ma zawartą granicę
+\item przestrzeń Banacha, zupełna unormowana przestrzeń wektorowa
+\item przestrzeń Hilberta, Banacha plus iloczyn wewnętrzny
 \end{enumerate}
 
-\vspace{0.5cm}
-\textbf{Fakt:} $\|x\| = \sqrt{\langle x, x \rangle}$ is a norm
+\subsection{Własności metryki przestrzeni}
+\begin{enumerate}
+\item nierówność Cauchy'ego-Schwarza,
 
-\vspace{0.5cm}
-\textit{przykład:} $X = \mathbb{R}^n, \langle x, y \rangle = \sum x_i \cdot y_i$
+$$\forall_{x,y \in X} |\langle x,y \rangle| \leq \|x\| \cdot \|y\|$$
+or
+$$\forall_{x,y \in X} \frac{\langle x,y \rangle}{\|x\| \cdot \|y\|} \in [-1,1]$$
 
-$\|x\| = \left(\sum x_i^2\right)^{1/2}$
+\item twierdzenie Pitagorasa, $x \perp y \iff \|x+y\|^2 = \|x\|^2 + \|y\|^2$, i uogólnienie
 
-\section{Własności metryki przestrzeni}
-\subsection{Nierówność Cauchy'ego-Schwarza}
-$\forall x,y \in X \quad |\langle x,y \rangle| \leq \|x\| \cdot \|y\|$
-
-$$\frac{\langle x,y \rangle}{\|x\| \cdot \|y\|} \in [-1,1]$$
-
-\subsection{Tw. Pitagorasa $(x \perp y \Rightarrow \|x+y\|^2 = \|x\|^2 + \|y\|^2)$}
 $$\|\sum x_k\|^2 = \sum \|x_k\|^2$$
 
-\subsection{$f(y,y) = \arccos\left(\frac{\langle x,y \rangle}{\|x\| \cdot \|y\|}\right)$}
-
-\vspace{0.3cm}
-\textit{zbiory ciągłe}
-
-\begin{enumerate}
-\item $\forall \varepsilon > 0 \exists \delta > 0 \forall x_1, x_2 \in X \; d(x_1, x_2) < \varepsilon$
-\item $\forall \varepsilon > 0 \exists \delta > 0 \forall x_1, m > 0 \; d(x_1, x_m) < \varepsilon$
+\item kąt pomiędzy wektorami, $\angle(x,y) = \arccos\left(\frac{\langle x,y \rangle}{\|x\| \cdot \|y\|}\right)$
 \end{enumerate}
-
-$(a) \Rightarrow (b) \quad (b) \Rightarrow (a)$ to przykład zupełnie
-
-\vspace{0.3cm}
-\textit{przykład}
-
-$X = [0,1] \quad d(x,y) = |x-y| \quad x_n = \frac{1}{n}$
 
 \end{document}
